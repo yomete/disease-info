@@ -1,7 +1,7 @@
 <div class="bottom m-t-lg m-b-lg" ng-show="diseases">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-9 col-md-9">
+            <div class="col-xs-12 col-sm-8 col-md-8">
                 <div class="bottom-container col-sm-12">
                     <div class="bottom-header">
                         <div class="col-sm-12">
@@ -33,13 +33,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-3 col-md-3 bottom-right">
+            <div class="col-xs-12 col-sm-4 col-md-4 bottom-right">
                 <div class="searchbox">
-                    <form class="wrapper-md">
-                        <div class="form-group">
-                            <input class="form-control" ng-model="search" placeholder="Search" required>
-                        </div>
-                    </form>
+
+                    <ul>
+                        <li ng-repeat="disease in diseases"><a ng-href="/{{disease.name}}">{{ disease.name }}</a></li>
+                    </ul>
+
                 </div>
             </div>
         </div>

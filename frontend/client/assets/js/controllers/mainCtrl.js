@@ -6,15 +6,8 @@ app.controller('diseaseCtrl', function (Disease, $scope) {
 
     Disease.all()
         .success(function(data) {
-
-
-
             // bind the diseases that come back to vm.diseases
-            $scope.diseases = data.diseases;
-
-            //console.log(value);
-            ////console.log(data.diseases[0]);
-            console.log($scope.diseases)
+            $scope.diseases = angular.fromJson(data.diseases);
         });
 });
 
@@ -24,8 +17,12 @@ app.controller('individualDiseaseCtrl', function($scope, Disease, $routeParams) 
 
     Disease.get($routeParams.name)
         .success(function(data) {
+            $scope.oneDisease = angular.fromJson(data);
+        });
 
-            $scope.oneDisease = data;
-            console.log($scope.oneDisease)
+    Disease.all()
+        .success(function(data) {
+            // bind the diseases that come back to vm.diseases
+            $scope.diseases = angular.fromJson(data.diseases);
         });
 });
